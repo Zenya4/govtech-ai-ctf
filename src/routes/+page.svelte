@@ -6,10 +6,12 @@
     import { A, Button } from 'flowbite-svelte'
     import OpenAI from 'openai';
 
+    const API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
+
     let doomscrollArticles: { href: string, img: string, header: string, content: string }[] = []
     let doomscrollObservedElement: HTMLElement;
 
-    const client = new OpenAI({apiKey: process.env['OPENAI_API_KEY'],});
+    const client = new OpenAI({apiKey: API_KEY, dangerouslyAllowBrowser: true});
 
     async function callAI(stuff: string) {
         const stream = await client.chat.completions.create({
