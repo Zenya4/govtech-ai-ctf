@@ -5,7 +5,9 @@
 	import DoomscrollCard from '$lib/components/DoomscrollCard.svelte';
     import { A, Button } from 'flowbite-svelte'
     import OpenAI from 'openai';
-    import { PUBLIC_API_KEY } from '$env/static/public'
+    import { PUBLIC_API_KEY } from '$env/static/public';
+
+    const API_KEY = PUBLIC_API_KEY;
 
     let doomscrollArticles: { href: string, img: string, header: string, content: string }[] = []
     let doomscrollObservedElement: HTMLElement;
@@ -37,7 +39,6 @@
     };
 
     const addDoomscrollArticle = () => {
-        var contentString: string = aiSync();
         doomscrollArticles = [
             ...doomscrollArticles,
         {
