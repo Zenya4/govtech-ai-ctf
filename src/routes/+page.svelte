@@ -44,11 +44,11 @@
     </span>
 
     <div id="main-buttons" class="flex flex-col items-center mt-20 mb-16 gap-4">
-        <MainCard href="/chat">
+        <MainCard href="/chat1">
             <svelte:fragment slot="header">Reading Exercises</svelte:fragment>
             <svelte:fragment slot="content">Put your skills to the test.</svelte:fragment>
         </MainCard>
-        <MainCard href="/chat">
+        <MainCard href="/chat2">
             <svelte:fragment slot="header">Therapy Session</svelte:fragment>
             <svelte:fragment slot="content">Engage your personalised AI therapist.</svelte:fragment>
         </MainCard>
