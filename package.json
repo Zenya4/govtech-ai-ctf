@@ -1,5 +1,5 @@
 {
-	"name": "ai-hackathon--real-",
+	"name": "ai-hackathon",
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
@@ -15,7 +15,11 @@
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
+		"@types/cal-heatmap": "^3.5.39",
 		"autoprefixer": "^10.4.20",
+		"flowbite": "^2.5.2",
+		"flowbite-svelte": "^0.47.3",
+		"flowbite-svelte-icons": "^2.0.2",
 		"svelte": "^5.0.0",
 		"svelte-check": "^4.0.0",
 		"tailwindcss": "^3.4.9",
@@ -26,6 +30,8 @@
 		"@tailwindcss/aspect-ratio": "^0.4.2",
 		"@tailwindcss/container-queries": "^0.1.1",
 		"@tailwindcss/forms": "^0.5.9",
-		"@tailwindcss/typography": "^0.5.15"
+		"@tailwindcss/typography": "^0.5.15",
+		"cal-heatmap": "^4.2.4",
+		"js-cookie": "^3.0.5"
 	}
 }
