@@ -3,7 +3,7 @@
 
 </script>
 <svelte:head>
-<title>Home</title>
+<title>Progress</title>
 <meta name="description" content="Demo AI Hackathon app" />
 </svelte:head>
 <section class="flex flex-col justify-center">
