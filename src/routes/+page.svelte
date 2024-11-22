@@ -3,7 +3,7 @@
     import MainCard from '$lib/components/MainCard.svelte';
     import Doomscroller from '$lib/components/Doomscroller.svelte';
 	import DoomscrollCard from '$lib/components/DoomscrollCard.svelte';
-    import { A, Button } from 'flowbite-svelte'
+    import { Button } from 'flowbite-svelte'
     import OpenAI from 'openai';
     import { PUBLIC_API_KEY } from '$env/static/public'
 
@@ -67,11 +67,11 @@
     </span>
 
     <div id="main-buttons" class="flex flex-col items-center mt-20 mb-16 gap-4">
-        <MainCard href="/chat1">
+        <MainCard href="/reading">
             <svelte:fragment slot="header">Reading Exercises</svelte:fragment>
             <svelte:fragment slot="content">Put your skills to the test.</svelte:fragment>
         </MainCard>
-        <MainCard href="/chat2">
+        <MainCard href="/chat">
             <svelte:fragment slot="header">Therapy Session</svelte:fragment>
             <svelte:fragment slot="content">Engage your personalised AI therapist.</svelte:fragment>
         </MainCard>
