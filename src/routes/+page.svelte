@@ -3,20 +3,47 @@
     import MainCard from '$lib/components/MainCard.svelte';
     import Doomscroller from '$lib/components/Doomscroller.svelte';
 	import DoomscrollCard from '$lib/components/DoomscrollCard.svelte';
-    import { Button } from 'flowbite-svelte'
+    import { A, Button } from 'flowbite-svelte'
+    import OpenAI from 'openai';
+
+    const API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
 
     let doomscrollArticles: { href: string, img: string, header: string, content: string }[] = []
     let doomscrollObservedElement: HTMLElement;
 
+    const client = new OpenAI({apiKey: API_KEY, dangerouslyAllowBrowser: true});
+
+    async function callAI(stuff: string) {
+        const stream = await client.chat.completions.create({
+            model: 'gpt-4o',
+            messages: [{ role: 'user', content: stuff}],
+            stream: true,
+        });
+        var a = [];
+        for await (const chunk of stream) {
+            a.push(chunk.choices[0]?.delta?.content || '');
+        }
+        return a;
+    }
+
+    const aiSync = () => {
+        let a: string[] = []
+        callAI('Give me a random news article').then(x => {
+            a = x;
+        });
+        return a.join(" ");
+    };
+
     const addDoomscrollArticle = () => {
+        var contentString: string = aiSync();
         doomscrollArticles = [
             ...doomscrollArticles,
-            {
-                href: 'https://zenya.dev',
-                img: 'https://zenya.dev/img/favicon.png',
-                header: 'The dangers of doomscrolling',
-                content: 'How to break the cycle of endless scrolling.'
-            }
+        {
+            href: 'https://zenya.dev',
+            img: 'https://zenya.dev/img/favicon.png',
+            header: 'The dangers of doomscrolling',
+            content: contentString
+        }
         ]
     }
 
