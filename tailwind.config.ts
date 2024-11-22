@@ -3,11 +3,18 @@ import containerQueries from '@tailwindcss/container-queries';
 import forms from '@tailwindcss/forms';
 import typography from '@tailwindcss/typography';
 import type { Config } from 'tailwindcss';
+import { join } from 'path';
 import flowbitePlugin from 'flowbite/plugin'
+import { skeleton } from '@skeletonlabs/tw-plugin';
 
 export default {
-    content: ['./src/**/*.{html,js,svelte,ts}', './node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}'],
-
+    content: ['./src/**/*.{html,js,svelte,ts}', 
+        './node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}',
+        join(require.resolve(
+			'@skeletonlabs/skeleton'),
+			'../**/*.{html,js,svelte,ts}'
+		)],
+    darkMode: "class",
     theme: {
         extend: {
             colors: {
@@ -52,5 +59,7 @@ export default {
         }
     },
     
-    plugins: [typography, forms, containerQueries, aspectRatio, flowbitePlugin]
+    plugins: [typography, forms, containerQueries, aspectRatio, flowbitePlugin, skeleton({
+		themes: { preset: [ "skeleton" ] }
+	})]
 } satisfies Config;

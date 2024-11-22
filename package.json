@@ -12,10 +12,13 @@
 	"devDependencies": {
 		"@fontsource/fira-mono": "^5.0.0",
 		"@neoconfetti/svelte": "^2.0.0",
+		"@skeletonlabs/skeleton": "^2.10.3",
+		"@skeletonlabs/tw-plugin": "^0.4.0",
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
 		"@types/cal-heatmap": "^3.5.39",
+		"@types/node": "^22.9.1",
 		"autoprefixer": "^10.4.20",
 		"flowbite": "^2.5.2",
 		"flowbite-svelte": "^0.47.3",
