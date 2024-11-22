@@ -13,22 +13,25 @@
 
     const client = new OpenAI({apiKey: API_KEY, dangerouslyAllowBrowser: true});
 
-    async function callAI(stuff: string) {
+    async function callAI() {
         const stream = await client.chat.completions.create({
             model: 'gpt-4o',
-            messages: [{ role: 'user', content: stuff}],
+            messages: [{ role: 'user', content: 'Give me a random news article'}],
             stream: true,
         });
         var a = [];
         for await (const chunk of stream) {
+            console.log(chunk.choices[0]?.delta?.content || '');
             a.push(chunk.choices[0]?.delta?.content || '');
         }
+        console.log(a)
         return a;
     }
 
-    const aiSync = () => {
+    function aiSync() {
+        console.log("aaa")
         let a: string[] = []
-        callAI('Give me a random news article').then(x => {
+        callAI().then(x => {
             a = x;
         });
         return a.join(" ");
